@@ -29,7 +29,11 @@ except:
     
 for node in dopNode.children():
     if node.name() == "output":
-        graNode = node.createInputNode(0,"gravity")
+        mergeNode = node.createInputNode(0,"merge")
+        groundNode = mergeNode.createInputNode(0,"groundplane")
+        graNode = mergeNode.createInputNode(0,"gravity")
+        mergeNode.setInput(0,groundNode,0)
+        mergeNode.setInput(1,graNode,0)
         bltSolverNode = graNode.createInputNode(0,"bulletrbdsolver")
         mergeNode = bltSolverNode.createInputNode(0,"merge")
         mergeNode.setName("merge_rbd")
