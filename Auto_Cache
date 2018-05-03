@@ -1,0 +1,13 @@
+color = hou.Color()
+color.setRGB((0.9,0,0))
+
+selectNodes = list(hou.selectedNodes())
+
+for selectNode in selectNodes:
+    name = selectNode.name()
+    if name.startswith('catche_tool') == True:
+        selectNode.parm("execute").pressButton()
+        selectNode.parm("reload").pressButton()
+        selectNode.setColor(color)
+    else:pass
+
