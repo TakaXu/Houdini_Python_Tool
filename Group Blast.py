@@ -19,4 +19,4 @@ for selectNode in selectNodes:
         blastNode = selectNode.createOutputNode("blast")
         blastNode.parm("group").set(grpname)
         blastNode.parm("negate").set(1)
-    
+        blastNode.setName(grpname)
