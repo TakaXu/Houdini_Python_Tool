@@ -15,9 +15,11 @@ node = plane.currentNode()
 
 try:
     dopNode = node.createNode("dopnet")
+    boxNode = dopNode.createInputNode(0,"box")
 except:
     temNode = node.parent()
     dopNode = temNode.createNode("dopnet")
+    boxNode = dopNode.createInputNode(0,"box")
    
 dopNode.setPosition(pos)
 dopNode.setColor(color2)
